@@ -15,5 +15,4 @@ sagaMiddleware.run(rootSaga);
 
 export type AppDispatch = typeof store.dispatch;
 
-// Enable persistence
 export default {store};

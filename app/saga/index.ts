@@ -9,6 +9,6 @@ const apiAuth = Api.auth();
 
 export default function* rootSaga() {
   yield all([
-    takeLatest(SignInUserTypes.SIGN_IN_USER_REQUEST, signInUser, apiAuth)
+    takeLatest(SignInUserTypes.SIGN_IN_USER_REQUEST, signInUser, apiAuth),
   ]);
 }

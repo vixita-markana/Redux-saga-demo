@@ -38,7 +38,6 @@ export function* signInUser(
   api: {signInUser: any},
   action: SignInUserActionTypes,
 ) {
-  console.log('loginUser', action, api);
   const response: ApiResponse<SignInUserTypes, ErrorTypes> = yield call(
     api.signInUser,
     action.payload,

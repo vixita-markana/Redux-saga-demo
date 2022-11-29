@@ -1,16 +1,17 @@
-import apisauce, {ApisauceInstance} from 'apisauce';
+import apisauce, { ApisauceInstance } from 'apisauce';
+import { PayloadType } from '../Types';
 
 const apiConfig: ApisauceInstance = (baseURL: string) =>
   apisauce.create({
     baseURL,
     timeout: 30000,
-    headers: {'Cache-Control': 'no-cache'},
+    headers: { 'Cache-Control': 'no-cache' },
   });
 
 export const api: ApisauceInstance = apiConfig('https://api.veroxos.com');
 
 const auth = () => {
-  const signInUser = (credentials: {username: string; password: string}) => {
+  const signInUser = (credentials: PayloadType) => {
     console.log('credentials', credentials);
     return api.post('/api/auth/login', credentials);
   };

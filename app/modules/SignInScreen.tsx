@@ -1,29 +1,26 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {AppDispatch, signInUserAction} from '../redux';
-
-interface SignInUserType {
-  fetching: string;
-  error: string;
-  signInUser: {token: string};
-}
+import { Text } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, signInUserAction } from '../redux';
+import { SignInUserType } from '../Types';
 
 const SignInScreen = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const {fetching, error}: {fetching: string; error: string} = useSelector(
-    (state: {signInUser: SignInUserType}) => state?.signInUser,
+  const { fetching, error }: SignInUserType = useSelector(
+    (state: { signInUser: SignInUserType }) => state?.signInUser,
   );
+
   const onSubmit = () => {
     dispatch(
       signInUserAction.signInUserRequest({
-        email: 'test',
+        userName: 'test',
         password: 'test',
       }),
     );
   };
 
-  // code
+  //  ...
 };
 
 export default SignInScreen;

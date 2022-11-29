@@ -1,9 +1,9 @@
-import {applyMiddleware, compose, createStore} from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from './index';
-import rootSaga from '../saga/index';
+import rootReducer from './';
+import rootSaga from '../saga';
 
-const sagaMiddleware = createSagaMiddleware({sagaMonitor: undefined});
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor: undefined });
 const middleWare = [sagaMiddleware];
 
 // Add middleware to redux store
@@ -15,4 +15,4 @@ sagaMiddleware.run(rootSaga);
 
 export type AppDispatch = typeof store.dispatch;
 
-export default {store};
+export default store;

@@ -1,16 +1,15 @@
-import { createActions } from 'reduxsauce';
+import { createActions, createReducer } from 'reduxsauce';
 import {
   SignInInitialStateTypes,
-  SignInDataTypes,
   SignInActionType,
   SignInActions,
   SignInActionTypes,
   SignInCreators,
-} from '../Types';
+} from '../../Types';
 
 /* ------------- Initial State ------------- */
 export const INITIAL_STATE: SignInInitialStateTypes = {
-  user: null,
+  data: undefined,
   fetching: false,
   error: undefined,
 };
@@ -18,7 +17,7 @@ export const INITIAL_STATE: SignInInitialStateTypes = {
 /* ------------- Reducers ------------- */
 // request the data from an api
 export const request = (_state: SignInInitialStateTypes) => {
-  return { fetching: true, user: null, error: null };
+  return { fetching: true, data: undefined, error: undefined };
 };
 const { Types, Creators } = createActions<SignInActionTypes, SignInCreators>({
   signInUserRequest: ['payload'],
@@ -34,11 +33,11 @@ export const success = (
   state: SignInInitialStateTypes,
   action: SignInActionType,
 ) => {
-  const { token }: SignInDataTypes = action;
+  const { data }: SignInActionType = action;
   return {
     fetching: false,
     error: false,
-    user: { token },
+    data: { token: data.data.token },
   };
 };
 

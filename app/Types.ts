@@ -13,9 +13,9 @@ export interface PayloadType {
 }
 
 export interface SignInInitialStateTypes {
-  user?: null | SignInDataTypes;
-  fetching?: boolean;
-  error?: boolean;
+  data: undefined | SignInDataTypes;
+  fetching: boolean;
+  error: string | undefined;
 }
 
 export interface SignInCreators extends DefaultActionCreators {
@@ -29,8 +29,7 @@ export interface SignInDataTypes {
 }
 
 export interface SignInActionType {
-  data?: SignInDataTypes;
-  type?: string;
+  data: { data: SignInDataTypes };
   error: string;
 }
 
@@ -71,7 +70,7 @@ export interface SignInUserActionTypes {
 }
 
 export interface SignInUserType {
-  fetching: string;
-  error: string;
-  signInUser: SignInDataTypes;
+  fetching?: boolean;
+  error?: string;
+  data?: SignInDataTypes;
 }

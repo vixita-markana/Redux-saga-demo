@@ -1,20 +1,21 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, signInUserAction } from '../redux';
-import { SignInUserType } from '../Types';
+
+import {
+  signInUserAction,
+  useAppDispatch,
+  AuthSelectors,
+  useAppSelector,
+} from '../redux';
 
 const SignInScreen = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  const { fetching, error }: SignInUserType = useSelector(
-    (state: { signInUser: SignInUserType }) => state?.signInUser,
-  );
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector<boolean>(AuthSelectors.getLoading);
+  const error = useAppSelector<string | undefined>(AuthSelectors.getError);
 
   const onSubmit = () => {
     dispatch(
       signInUserAction.signInUserRequest({
-        userName: 'test',
+        useName: 'test',
         password: 'test',
       }),
     );

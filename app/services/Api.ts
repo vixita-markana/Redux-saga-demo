@@ -12,7 +12,6 @@ export const api: ApisauceInstance = apiConfig('https://api.veroxos.com');
 
 const auth = () => {
   const signInUser = (credentials: PayloadType) => {
-    console.log('credentials', credentials);
     return api.post('/api/auth/login', credentials);
   };
 

@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux';
-import signInUserAction, {
+import {
+  signInUserAction,
   signInUserReducer,
   SignInUserTypes,
-} from './SignInUser';
+  AuthSelectors,
+} from './signInUser';
 
 import type { AppDispatch } from './Store';
 
 const rootReducer = combineReducers({
-  signInUser: signInUserReducer,
+  data: signInUserReducer,
 });
 
 export default rootReducer;
-export { AppDispatch, SignInUserTypes, signInUserAction };
+export { AppDispatch, SignInUserTypes, signInUserAction, AuthSelectors };
+export * from './useRedux';

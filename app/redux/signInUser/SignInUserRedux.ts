@@ -4,7 +4,7 @@ import {
   SignInActionType,
   SignInActions,
   SignInActionTypes,
-  SignInCreators,
+  SignInActionCreators,
 } from '../../Types';
 
 /* ------------- Initial State ------------- */
@@ -19,7 +19,10 @@ export const INITIAL_STATE: SignInInitialStateTypes = {
 export const request = (_state: SignInInitialStateTypes) => {
   return { fetching: true, data: undefined, error: undefined };
 };
-const { Types, Creators } = createActions<SignInActionTypes, SignInCreators>({
+const { Types, Creators } = createActions<
+  SignInActionTypes,
+  SignInActionCreators
+>({
   signInUserRequest: ['payload'],
   signInUserSuccess: ['data'],
   signInUserFailure: ['error'],

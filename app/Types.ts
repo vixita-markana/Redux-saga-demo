@@ -2,7 +2,7 @@ import { AnyAction } from 'redux';
 import { DefaultActionCreators, DefaultActionTypes } from 'reduxsauce';
 
 export interface SignInActionTypes extends DefaultActionTypes {
-  signInRequest: 'signInProp';
+  signInRequest: 'signInRequestProp';
   signInSuccess: 'signInSuccessProp';
   signInFailure: 'signInFailureProp';
 }
@@ -18,10 +18,10 @@ export interface SignInInitialStateTypes {
   error: string | undefined;
 }
 
-export interface SignInCreators extends DefaultActionCreators {
-  signInProp: (payload: PayloadType) => ISignInPropAction;
-  signInSuccessProp: (data: SignInDataTypes) => ISignInSuccessPropAction;
-  signInFailureProp: (error: string) => ISignInFailurePropAction;
+export interface SignInActionCreators extends DefaultActionCreators {
+  signInRequestProp: (payload: PayloadType) => SignInPropAction;
+  signInSuccessProp: (data: SignInDataTypes) => SignInSuccessPropAction;
+  signInFailureProp: (error: string) => SignInFailurePropAction;
 }
 
 export interface SignInDataTypes {
@@ -33,15 +33,15 @@ export interface SignInActionType {
   error: string;
 }
 
-export interface ISignInPropAction extends AnyAction {
+export interface SignInPropAction extends AnyAction {
   payload: PayloadType;
 }
 
-export interface ISignInSuccessPropAction extends AnyAction {
+export interface SignInSuccessPropAction extends AnyAction {
   data: SignInDataTypes;
 }
 
-export interface ISignInFailurePropAction extends AnyAction {
+export interface SignInFailurePropAction extends AnyAction {
   error: string;
 }
 
@@ -59,9 +59,9 @@ export interface ErrorTypes {
   status?: number;
 }
 export type SignInActions =
-  | ISignInPropAction
-  | ISignInSuccessPropAction
-  | ISignInFailurePropAction
+  | SignInPropAction
+  | SignInSuccessPropAction
+  | SignInFailurePropAction
   | AnyAction;
 
 export interface SignInUserActionTypes {

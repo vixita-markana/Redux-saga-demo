@@ -2,9 +2,14 @@ import { ApiResponse } from 'apisauce';
 import { call, put } from 'redux-saga/effects';
 
 import { signInUserAction } from '../redux';
-import { ErrorTypes, SignInUserActionTypes, SignInUserTypes } from '../Types';
+import {
+  ErrorTypes,
+  SignInUserActionTypes,
+  SignInUserAPITypes,
+  SignInUserTypes,
+} from '../Types';
 
-function* signInHandleResponse(response: SignInUserTypes) {
+function* signInHandleResponse(response: SignInUserTypes | ErrorTypes) {
   if (response?.status === 200) {
     yield put(signInUserAction.signInUserSuccess(response));
   } else {
@@ -13,7 +18,7 @@ function* signInHandleResponse(response: SignInUserTypes) {
 }
 
 export function* signInUser(
-  api: { signInUser: any },
+  api: SignInUserAPITypes,
   action: SignInUserActionTypes,
 ) {
   const response: ApiResponse<SignInUserTypes, ErrorTypes> = yield call(

@@ -1,3 +1,4 @@
+import { ApiResponse } from 'apisauce';
 import { AnyAction } from 'redux';
 import { DefaultActionCreators, DefaultActionTypes } from 'reduxsauce';
 
@@ -73,4 +74,10 @@ export interface SignInUserType {
   fetching?: boolean;
   error?: string;
   data?: SignInDataTypes;
+}
+
+export interface SignInUserAPITypes {
+  signInUser: (
+    payload: PayloadType,
+  ) => ApiResponse<SignInUserTypes, ErrorTypes>;
 }

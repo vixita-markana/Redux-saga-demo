@@ -59,6 +59,7 @@ export interface ErrorTypes {
   message?: string;
   status?: number;
 }
+
 export type SignInActions =
   | SignInPropAction
   | SignInSuccessPropAction

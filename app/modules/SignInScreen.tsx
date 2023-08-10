@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-
 import {
+  AuthSelectors,
   signInUserAction,
   useAppDispatch,
-  AuthSelectors,
   useAppSelector,
 } from '../redux';
-import { Text } from 'react-native';
 
 const SignInScreen = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +25,6 @@ const SignInScreen = () => {
   }, []);
 
   //  ...
-  return <Text>sddd</Text>;
 };
 
 export default SignInScreen;

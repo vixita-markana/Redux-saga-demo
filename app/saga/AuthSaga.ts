@@ -1,6 +1,5 @@
 import { ApiResponse } from 'apisauce';
 import { call, put } from 'redux-saga/effects';
-
 import { signInUserAction } from '../redux';
 import {
   ErrorTypes,

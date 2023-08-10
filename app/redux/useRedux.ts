@@ -1,9 +1,9 @@
 import {
-  type TypedUseSelectorHook,
-  useSelector,
   useDispatch,
+  useSelector,
+  type TypedUseSelectorHook,
 } from 'react-redux';
-import type { RootStateType, AppDispatchType } from './Store';
+import type { AppDispatchType, RootStateType } from './Store';
 
 /**
  * It returns the dispatch function from the Redux store, but with a type that's specific to the app.

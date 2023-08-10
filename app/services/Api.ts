@@ -15,12 +15,7 @@ const auth = () => {
     return api.post('/api/auth/login', credentials);
   };
 
-  return {
-    signInUser,
-  };
+  return { signInUser };
 };
 
-export default {
-  auth,
-  api,
-};
+export default { auth, api };

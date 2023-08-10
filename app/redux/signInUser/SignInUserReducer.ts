@@ -19,6 +19,7 @@ export const INITIAL_STATE: SignInInitialStateTypes = {
 export const request = (_state: SignInInitialStateTypes) => {
   return { fetching: true, data: undefined, error: undefined };
 };
+
 const { Types, Creators } = createActions<
   SignInActionTypes,
   SignInActionCreators
@@ -53,8 +54,7 @@ export const failure = (
   return Object.assign(state, { fetching: false, error });
 };
 
-/* ------------- Hookup Reducers To Types ------------- */
-
+/* ------------- Reducer Types ------------- */
 export const signInUserReducer = createReducer<
   SignInInitialStateTypes,
   SignInActions

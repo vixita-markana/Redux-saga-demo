@@ -1,8 +1,6 @@
 import { all, takeLatest } from 'redux-saga/effects';
 import { SignInUserTypes } from '../redux';
-
 import { Api } from '../services';
-
 import { signInUser } from './AuthSaga';
 
 const apiAuth = Api.auth();

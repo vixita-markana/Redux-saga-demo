@@ -1,10 +1,8 @@
-import { createActions, createReducer } from 'reduxsauce';
+import { createReducer } from 'reduxsauce';
 import {
-  SignInInitialStateTypes,
   SignInActionType,
   SignInActions,
-  SignInActionTypes,
-  SignInActionCreators,
+  SignInInitialStateTypes,
 } from '../../Types';
 
 /* ------------- Initial State ------------- */
@@ -15,24 +13,12 @@ export const INITIAL_STATE: SignInInitialStateTypes = {
 };
 
 /* ------------- Reducers ------------- */
-// request the data from an api
+// API request
 export const request = (_state: SignInInitialStateTypes) => {
   return { fetching: true, data: undefined, error: undefined };
 };
 
-const { Types, Creators } = createActions<
-  SignInActionTypes,
-  SignInActionCreators
->({
-  signInUserRequest: ['payload'],
-  signInUserSuccess: ['data'],
-  signInUserFailure: ['error'],
-});
-
-export const SignInUserTypes: SignInActionTypes = Types;
-export default Creators;
-
-// successful api lookup
+// API success
 export const success = (
   state: SignInInitialStateTypes,
   action: SignInActionType,
@@ -41,11 +27,11 @@ export const success = (
   return {
     fetching: false,
     error: false,
-    data: { token: data.data.token },
+    data: { token: data.token },
   };
 };
 
-// Something went wrong somewhere.
+// API failure
 export const failure = (
   state: SignInInitialStateTypes,
   action: SignInActionType,

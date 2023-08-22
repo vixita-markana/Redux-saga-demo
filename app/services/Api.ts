@@ -8,11 +8,11 @@ const apiConfig: ApisauceInstance = (baseURL: string) =>
     headers: { 'Cache-Control': 'no-cache' },
   });
 
-export const api: ApisauceInstance = apiConfig('https://api.veroxos.com');
+export const api: ApisauceInstance = apiConfig(SERVER_URL);
 
 const auth = () => {
   const signInUser = (credentials: PayloadType) => {
-    return api.post('/api/auth/login', credentials);
+    return api.post(END_POINT, credentials);
   };
 
   return { signInUser };

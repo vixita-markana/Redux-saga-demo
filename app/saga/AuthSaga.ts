@@ -8,11 +8,12 @@ import {
   SignInUserTypes,
 } from '../Types';
 
-function* signInHandleResponse(response: SignInUserTypes | ErrorTypes) {
-  if (response?.status === 200) {
-    yield put(signInUserAction.signInUserSuccess(response));
+function* signInHandleResponse(data: SignInUserTypes) {
+  if (data.status === 200) {
+    yield put(signInUserAction.signInUserSuccess(data?.data));
+    // Redirect to dashboard screen
   } else {
-    yield put(signInUserAction.signInUserFailure(response.message));
+    yield put(signInUserAction.signInUserFailure(data?.message));
   }
 }
 
@@ -24,5 +25,5 @@ export function* signInUser(
     api.signInUser,
     action.payload,
   );
-  yield* signInHandleResponse(response?.data);
+  yield* signInHandleResponse(response.data);
 }

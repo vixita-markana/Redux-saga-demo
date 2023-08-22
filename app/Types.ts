@@ -9,7 +9,7 @@ export interface SignInActionTypes extends DefaultActionTypes {
 }
 
 export interface PayloadType {
-  userName: string;
+  email: string;
   password: String;
 }
 
@@ -30,7 +30,7 @@ export interface SignInDataTypes {
 }
 
 export interface SignInActionType {
-  data: { data: SignInDataTypes };
+  data: SignInDataTypes;
   error: string;
 }
 
@@ -46,12 +46,10 @@ export interface SignInFailurePropAction extends AnyAction {
   error: string;
 }
 
-export interface ISignInResetPropAction extends AnyAction {}
-
 export interface SignInUserTypes {
-  data: SignInDataTypes;
+  data: { data?: { token: string } };
+  status: number;
   message?: string;
-  status?: number;
 }
 
 export interface ErrorTypes {

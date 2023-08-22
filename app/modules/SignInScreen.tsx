@@ -5,6 +5,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '../redux';
+import { ActivityIndicator, Text, View } from 'react-native';
 
 const SignInScreen = () => {
   const dispatch = useAppDispatch();
@@ -14,8 +15,8 @@ const SignInScreen = () => {
   const onSubmit = () => {
     dispatch(
       signInUserAction.signInUserRequest({
-        useName: 'test',
-        password: 'test',
+        email: 'vixita@gmail.com',
+        password: 'Test@123',
       }),
     );
   };
@@ -24,7 +25,17 @@ const SignInScreen = () => {
     onSubmit();
   }, []);
 
-  //  ...
+  return (
+    <View>
+      {loading ? (
+        <ActivityIndicator />
+      ) : error ? (
+        <Text>{error}</Text>
+      ) : (
+        <View>{/*...Sign-in form*/}</View>
+      )}
+    </View>
+  );
 };
 
 export default SignInScreen;

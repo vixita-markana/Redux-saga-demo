@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Provider } from 'react-redux';
-import SignInScreen from './modules/SignInScreen';
-import store from './redux/Store';
+import { SignInScreen } from './modules';
+import store from './redux';
 
 const App: FC = () => {
   return (

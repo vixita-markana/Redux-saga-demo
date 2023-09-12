@@ -10,10 +10,10 @@ const rootReducer = combineReducers({
 
 // Create middleware
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor: undefined });
-const middleWare = [sagaMiddleware];
+const middleware = [sagaMiddleware];
 
 // Connect our middleware to the Store
-const middlewares = applyMiddleware(...middleWare);
+const middlewares = applyMiddleware(...middleware);
 
 // Store holds the complete state of app
 const store = createStore(rootReducer, compose(middlewares));

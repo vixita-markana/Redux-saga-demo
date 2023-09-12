@@ -15,7 +15,11 @@ export const INITIAL_STATE: SignInInitialStateTypes = {
 /* ------------- Reducers ------------- */
 // API request
 export const request = (_state: SignInInitialStateTypes) => {
-  return { fetching: true, data: undefined, error: undefined };
+  return {
+    fetching: true,
+    data: undefined,
+    error: undefined,
+  };
 };
 
 // API success
@@ -27,7 +31,7 @@ export const success = (
   return {
     fetching: false,
     error: false,
-    data: { token: data.token },
+    data: { token: data?.token },
   };
 };
 
@@ -37,7 +41,11 @@ export const failure = (
   action: SignInActionType,
 ) => {
   const { error }: { error: string } = action;
-  return Object.assign(state, { fetching: false, error });
+  return {
+    data: undefined,
+    fetching: false,
+    error,
+  };
 };
 
 /* ------------- Reducer Types ------------- */
